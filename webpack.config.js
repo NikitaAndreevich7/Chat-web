@@ -1,4 +1,5 @@
 
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
@@ -23,6 +24,12 @@ module.exports = (env = {}) => {
         title: 'Chat',
         buildTime: new Date().toISOString(),
         template: 'public/index.html'
+      }),
+      new ForkTsCheckerWebpackPlugin({
+        async:false,
+        eslint:{
+          files: "./src/**/*"
+        }
       })
     ];
     if (isProd) {
@@ -37,6 +44,10 @@ module.exports = (env = {}) => {
   return {
     mode: isProd ? 'production' : isDev && 'development',
 
+    resolve: {
+      extensions: [".tsx", ".ts", ".js"],
+    },
+
     output:{
       filename: isProd ? 'main-[hash:8].js' : undefined
     },
@@ -44,13 +55,18 @@ module.exports = (env = {}) => {
     module: {
       rules: [
         {
-          test: /\.js$/, //все файлы с расшерением js
-          exclude: /node_modules/,
-          use: [
-            {
-              loader: 'babel-loader'//теперь все фалйы с расшерением js будут проходить через babel-loader
+          test:/\.(ts|js)x?/,
+          exclude:/node_modules/,
+          use:{
+            loader:"babel-loader",
+            options:{
+              presets:[
+                "@babel/preset-env",
+                "@babel/preset-react",
+                "@babel/preset-typescript"
+              ]
             }
-          ]
+          }
         },
         // Loading images
         {
