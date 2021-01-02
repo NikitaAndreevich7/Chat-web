@@ -4,7 +4,7 @@ import Room from '../Room'
 import Form from '../Form'
 
 const App: React.FunctionComponent = () => {
-  return <Form />
+  return <Room />
 }
 
 export default App
