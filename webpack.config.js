@@ -46,16 +46,18 @@ module.exports = (env = {}) => {
         {
           test: /\.(ts|js)x?/,
           exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                '@babel/preset-env',
-                '@babel/preset-react',
-                '@babel/preset-typescript',
-              ],
+          use: [
+            {
+              loader: 'babel-loader',
+              options: {
+                presets: [
+                  '@babel/preset-env',
+                  '@babel/preset-react',
+                  '@babel/preset-typescript',
+                ],
+              },
             },
-          },
+          ],
         },
         // Loading images
         {
@@ -94,6 +96,9 @@ module.exports = (env = {}) => {
 
     devServer: {
       open: true,
+      compress: true,
+      watchContentBase: true,
+      contentBase: './src/index.tsx',
     },
   }
 }
