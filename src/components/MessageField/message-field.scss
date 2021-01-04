@@ -1,14 +1,16 @@
 $input-back: #fff;
 $field-back: grey;
+$input-height: 50px;
 
 .mesField {
   display: flex;
+  position: relative;
   width: 100%;
   height: 100%;
   background-color: $field-back;
 
   &__inputBox {
-    height: 70px;
+    height: $input-height;
     width: 100%;
     display: flex;
     align-items: center;
@@ -21,8 +23,21 @@ $field-back: grey;
   &__inputField {
     width: 95%;
   }
+
+  &__input {
+    width: 100%;
+    border: none;
+    outline: none;
+  }
+
+  &__emojiBox {
+    position: absolute;
+    bottom: $input-height + 10;
+    right: 10px;
+  }
   &__btn {
-    width: 35px;
+    width: 25px;
     cursor: pointer;
+    margin-right: 15px;
   }
 }

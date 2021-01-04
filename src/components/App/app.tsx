@@ -1,10 +1,10 @@
 import React from 'react'
 import './app.scss'
-import Room from '../Room'
+import Home from '../Home'
 import Form from '../Form'
 
 const App: React.FunctionComponent = () => {
-  return <Room />
+  return <Home />
 }
 
 export default App

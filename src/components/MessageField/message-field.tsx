@@ -1,21 +1,39 @@
 import React from 'react'
 import './message-field.scss'
 
-import SendIcon from '../../ui/svg/send.svg'
+import Smile from '../../ui/svg/smile.svg'
+import PaperClip from '../../ui/svg/paperclip.svg'
+import Picker from 'emoji-picker-react'
 
 const MessageField: React.FunctionComponent = () => {
+  const [input, setInput] = React.useState('')
+  const [emoji, setEmoji] = React.useState(false)
+
   return (
     <div className="mesField">
+      {emoji ? (
+        <div className="mesField__emojiBox">
+          <Picker
+            disableSearchBar={false}
+            onEmojiClick={(emoji) => setInput(input + emoji)}
+          />
+        </div>
+      ) : null}
       <div className="mesField__inputBox">
-        <div className="input-group mesField__inputField">
+        <div>
+          <img src={PaperClip} className="mesField__btn" alt="" />
+        </div>
+        <div className="mesField__inputField">
           <input
-            type="text"
-            className="form-control"
+            className="mesField__input"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Write a message..."
             aria-label="Dollar amount (with dot and two decimal places)"
           />
         </div>
-        <div>
-          <img src={SendIcon} className="mesField__btn" alt="" />
+        <div onClick={() => setEmoji(!emoji)}>
+          <img src={Smile} className="mesField__btn" alt="" />
         </div>
       </div>
     </div>

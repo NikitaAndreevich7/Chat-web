@@ -1,8 +1,20 @@
 import React from 'react'
 import './user-list.scss'
 
-const UsersList: React.FunctionComponent = () => {
-  return <div>User list component</div>
+import UserItem from '../UserItem'
+
+interface typeProps {
+  users: Array<object>
+}
+
+const UsersList: React.FunctionComponent<typeProps> = ({ users }) => {
+  return (
+    <React.Fragment>
+      {users.map((user) => {
+        return <UserItem {...user} />
+      })}
+    </React.Fragment>
+  )
 }
 
 export default UsersList
