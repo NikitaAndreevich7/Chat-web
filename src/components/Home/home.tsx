@@ -2,9 +2,9 @@ import React from 'react'
 import './home.scss'
 
 import HomeHoc from '../../hoc/home-hoc'
-import MessageField from '../MessageField'
-import UsersList from '../UsersList'
-import SearchUser from '../SearchUser'
+import MessageField from '../Message/MessageField'
+import UsersList from '../User/UsersList'
+import SearchUser from '../User/SearchUser'
 
 type typeUser = {
   name: string
@@ -12,12 +12,21 @@ type typeUser = {
   online: boolean
   id: number
 }
+type messageItem = {
+  message: string
+  date: string
+  time: string
+}
 
 type typeProps = {
   userList: typeUser[]
+  messageList: messageItem[]
 }
 
-const Home: React.FunctionComponent<typeProps> = ({ userList }: typeProps) => {
+const Home: React.FunctionComponent<typeProps> = ({
+  userList,
+  messageList,
+}: typeProps) => {
   return (
     <div className="home">
       <div className="home__usersBox">
@@ -27,7 +36,7 @@ const Home: React.FunctionComponent<typeProps> = ({ userList }: typeProps) => {
         <UsersList userList={userList} />
       </div>
       <div className="home__messageBox">
-        <MessageField />
+        <MessageField messageList={messageList} />
       </div>
     </div>
   )

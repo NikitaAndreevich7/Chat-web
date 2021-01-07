@@ -1,0 +1,34 @@
+$input-back: #fff;
+$field-back: grey;
+$input-height: 50px;
+
+.mesFieldFooter {
+  height: $input-height;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto 0 0 0;
+  padding: 0 20px 0 20px;
+  background-color: $input-back;
+
+  &__inputField {
+    width: 95%;
+  }
+
+  &__input {
+    width: 100%;
+    border: none;
+    outline: none;
+  }
+  &__btn {
+    width: 25px;
+    cursor: pointer;
+    margin-right: 15px;
+  }
+}
+.emojiBox {
+  position: absolute;
+  bottom: $input-height + 10;
+  right: 10px;
+}

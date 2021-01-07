@@ -1,17 +1,24 @@
 import React from 'react'
 
-type typeUser = {
+type userItem = {
   name: string
   surname: string
   online: boolean
   id: number
 }
 
-type typeUsersList = {
-  userList: typeUser[]
+type messageItem = {
+  message: string
+  date: string
+  time: string
 }
 
-const HomeHoc = (ViewComponent: React.FunctionComponent<typeUsersList>) => {
+type typeProps = {
+  userList: userItem[]
+  messageList: messageItem[]
+}
+
+const HomeHoc = (ViewComponent: React.FunctionComponent<typeProps>) => {
   return () => {
     const [userList, setUsers] = React.useState([
       {
@@ -33,7 +40,15 @@ const HomeHoc = (ViewComponent: React.FunctionComponent<typeUsersList>) => {
         id: 3,
       },
     ])
-    return <ViewComponent userList={userList} />
+
+    const [messageList, setMessage] = React.useState([
+      {
+        message: 'Hello nikita.This is firs message.Testing functionality.',
+        time: '11:34',
+        date: '25.12.20',
+      },
+    ])
+    return <ViewComponent userList={userList} messageList={messageList} />
   }
 }
 
