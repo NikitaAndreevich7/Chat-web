@@ -1,26 +1,10 @@
 import React from 'react'
 
-type userItem = {
-  name: string
-  surname: string
-  online: boolean
-  id: number
-  color: string
-}
+import { IUserItem, IMessageItem } from '../interface'
 
-type messageItem = {
-  message: string
-  date: string
-  time: string
-  firstName: string
-  lastName: string
-  color: string
-  id: number
-}
-
-type typeProps = {
-  userList: userItem[]
-  messageList: messageItem[]
+interface typeProps {
+  userList: IUserItem[]
+  messageList: IMessageItem[]
 }
 
 const HomeHoc = (ViewComponent: React.FunctionComponent<typeProps>) => {

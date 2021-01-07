@@ -1,33 +1,17 @@
 import React from 'react'
 import './home.scss'
 
-import HomeHoc from '../../helper/hoc/home-hoc'
+import { store } from '../../store/store'
+import { IUserItem, IMessageItem } from '../../interface'
+
+import HomeHoc from '../../hoc/home-hoc'
 import MessageField from '../Message/MessageField'
 import UsersList from '../User/UsersList'
 import SearchUser from '../User/SearchUser'
 
-import { store } from '../../store/store'
-
-type typeUser = {
-  name: string
-  surname: string
-  online: boolean
-  id: number
-  color: string
-}
-type messageItem = {
-  message: string
-  date: string
-  time: string
-  color: string
-  firstName: string
-  lastName: string
-  id: number
-}
-
-type typeProps = {
-  userList: typeUser[]
-  messageList: messageItem[]
+interface typeProps {
+  userList: IUserItem[]
+  messageList: IMessageItem[]
 }
 
 const Home: React.FunctionComponent<typeProps> = ({

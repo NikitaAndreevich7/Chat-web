@@ -2,14 +2,9 @@ import React from 'react'
 import './user-item.scss'
 import { store } from '../../../store/store'
 import { MenuCondition } from '../../../store/store.actions'
-type typeUser = {
-  name: string
-  surname: string
-  online: boolean
-  color: string
-}
+import { IUserItem } from '../../../interface'
 
-const UserItem = ({ name, surname, online, color }: typeUser) => {
+const UserItem = ({ name, surname, online, color }: IUserItem) => {
   const {
     state: { menu },
     dispatch,

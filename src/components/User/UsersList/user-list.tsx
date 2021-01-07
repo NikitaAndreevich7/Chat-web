@@ -2,17 +2,10 @@ import React from 'react'
 import './user-list.scss'
 
 import UserItem from '../UserItem'
+import { IUserItem } from '../../../interface'
 
-type typeUser = {
-  name: string
-  surname: string
-  online: boolean
-  id: number
-  color: string
-}
-
-type typeProps = {
-  userList: typeUser[]
+interface typeProps {
+  userList: IUserItem[]
 }
 
 const UsersList = ({ userList }: typeProps) => {

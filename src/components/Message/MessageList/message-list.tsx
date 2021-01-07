@@ -2,19 +2,10 @@ import React from 'react'
 import './message-list.scss'
 
 import MessageItem from '../MessageItem'
+import { IMessageItem } from '../../../interface'
 
-type messageItem = {
-  message: string
-  date: string
-  time: string
-  id: number
-  firstName: string
-  lastName: string
-  color: string
-}
-
-type typeProps = {
-  messageList: messageItem[]
+interface typeProps {
+  messageList: IMessageItem[]
 }
 
 const MessageList: React.FunctionComponent<typeProps> = ({

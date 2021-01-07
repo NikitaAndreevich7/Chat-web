@@ -2,23 +2,16 @@ import React from 'react'
 import MessageFieldHeader from '../MessageFieldHeader'
 import './message-item.scss'
 
-type typeProps = {
-  message: string
-  date: string
-  time: string
-  firstName: string
-  lastName: string
-  color: string
-}
+import { IMessageItem } from '../../../interface'
 
-const MessageItem: React.FunctionComponent<typeProps> = ({
+const MessageItem: React.FunctionComponent<IMessageItem> = ({
   message,
   date,
   time,
   firstName,
   lastName,
   color,
-}: typeProps) => {
+}: IMessageItem) => {
   return (
     <div className="wrapper">
       <div className="userMsg">
