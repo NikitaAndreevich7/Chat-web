@@ -1,10 +1,8 @@
 import React from 'react'
 import './app.scss'
-import Home from '../Home'
-import Auth from '../Auth'
 
-const App: React.FunctionComponent = () => {
-  return <Auth />
+const App: React.FunctionComponent = ({ children }) => {
+  return <>{children}</>
 }
 
 export default App

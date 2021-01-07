@@ -3,6 +3,7 @@ import './auth.scss'
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
+import { Link } from 'react-router-dom'
 
 const Auth: React.FunctionComponent = () => {
   return (
@@ -31,9 +32,11 @@ const Auth: React.FunctionComponent = () => {
                 placeholder="Password"
               />
             </div>
-            <button type="submit" className="btn btn-primary">
-              Connect
-            </button>
+            <Link to={'/'}>
+              <button type="submit" className="btn btn-primary">
+                Connect
+              </button>
+            </Link>
           </form>
         </TabPanel>
         <TabPanel>
@@ -66,9 +69,11 @@ const Auth: React.FunctionComponent = () => {
                 placeholder="Repeat the password"
               />
             </div>
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
+            <Link to="/">
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+            </Link>
           </form>
         </TabPanel>
       </Tabs>

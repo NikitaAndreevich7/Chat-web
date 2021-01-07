@@ -1,9 +1,11 @@
 import React from 'react'
 import './message-field.scss'
+import { Link } from 'react-router-dom'
 
 import Smile from '../../ui/svg/smile.svg'
 import PaperClip from '../../ui/svg/paperclip.svg'
 import Picker from 'emoji-picker-react'
+import Exit from '../../ui/svg/exit.svg'
 
 const MessageField: React.FunctionComponent = () => {
   const [input, setInput] = React.useState('')
@@ -11,6 +13,11 @@ const MessageField: React.FunctionComponent = () => {
 
   return (
     <div className="mesField">
+      <div className="mesField__headerBox">
+        <Link to={'/auth'}>
+          <img src={Exit} className="mesField__btn" alt="" />
+        </Link>
+      </div>
       {emoji ? (
         <div className="mesField__emojiBox">
           <Picker

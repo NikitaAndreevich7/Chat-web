@@ -6,18 +6,25 @@ import MessageField from '../MessageField'
 import UsersList from '../UsersList'
 import SearchUser from '../SearchUser'
 
-interface typeProps {
-  users: Array<object>
+type typeUser = {
+  name: string
+  surname: string
+  online: boolean
+  id: number
 }
 
-const Home: React.FunctionComponent<typeProps> = ({ users }) => {
+type typeProps = {
+  userList: typeUser[]
+}
+
+const Home: React.FunctionComponent<typeProps> = ({ userList }: typeProps) => {
   return (
     <div className="home">
       <div className="home__usersBox">
         <div className="home__searchBox">
           <SearchUser />
         </div>
-        <UsersList users={users} />
+        <UsersList userList={userList} />
       </div>
       <div className="home__messageBox">
         <MessageField />

@@ -1,34 +1,39 @@
 import React from 'react'
 
-interface typeState {
-  users: Array<object>
+type typeUser = {
+  name: string
+  surname: string
+  online: boolean
+  id: number
 }
 
-function HomeHoc<T>(Child: React.ComponentType<T>) {
-  return class extends React.Component<T, typeState> {
-    state: typeState = {
-      users: [
-        {
-          name: 'Nikita',
-          surname: 'Tikokn',
-          online: false,
-        },
-        {
-          name: 'Piter',
-          surname: 'Petrov',
-          online: true,
-        },
-        {
-          name: 'Aren',
-          surname: 'Kirilov',
-          online: false,
-        },
-      ],
-    }
+type typeUsersList = {
+  userList: typeUser[]
+}
 
-    render() {
-      return <Child {...this.props} {...this.state} />
-    }
+const HomeHoc = (ViewComponent: React.FunctionComponent<typeUsersList>) => {
+  return () => {
+    const [userList, setUsers] = React.useState([
+      {
+        name: 'Nikita',
+        surname: 'Tikokn',
+        online: false,
+        id: 1,
+      },
+      {
+        name: 'Piter',
+        surname: 'Petrov',
+        online: true,
+        id: 2,
+      },
+      {
+        name: 'Aren',
+        surname: 'Kirilov',
+        online: false,
+        id: 3,
+      },
+    ])
+    return <ViewComponent userList={userList} />
   }
 }
 

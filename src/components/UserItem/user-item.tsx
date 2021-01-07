@@ -1,15 +1,13 @@
 import React from 'react'
 import './user-item.scss'
 
-interface typeProps {
+type typeUser = {
   name: string
   surname: string
   online: boolean
 }
 
-const UserItem: React.FunctionComponent<typeProps> = (props) => {
-  const { name, surname, online } = props
-
+const UserItem = ({ name, surname, online }: typeUser) => {
   const colors: Array<string> = [
     '#7FFFD4',
     '#2F4F4F',

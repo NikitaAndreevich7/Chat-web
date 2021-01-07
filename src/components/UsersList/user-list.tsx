@@ -3,18 +3,27 @@ import './user-list.scss'
 
 import UserItem from '../UserItem'
 
-interface typeProps {
-  users: Array<object>
+type typeUser = {
+  name: string
+  surname: string
+  online: boolean
+  id: number
 }
 
-const UsersList: React.FunctionComponent<typeProps> = ({ users }) => {
-  return (
-    <React.Fragment>
-      {users.map((user) => {
-        return <UserItem {...user} />
-      })}
-    </React.Fragment>
-  )
+type typeProps = {
+  userList: typeUser[]
+}
+
+const UsersList = ({ userList }: typeProps) => {
+  const users = userList.map((user) => {
+    const { id, ...userProps } = user
+    return (
+      <li key={id}>
+        <UserItem {...userProps} />
+      </li>
+    )
+  })
+  return <ul>{users}</ul>
 }
 
 export default UsersList
