@@ -1,7 +1,7 @@
 import React from 'react'
 import './home.scss'
 
-import HomeHoc from '../../hoc/home-hoc'
+import HomeHoc from '../../helper/hoc/home-hoc'
 import MessageField from '../Message/MessageField'
 import UsersList from '../User/UsersList'
 import SearchUser from '../User/SearchUser'
