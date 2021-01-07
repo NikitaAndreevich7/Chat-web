@@ -9,6 +9,10 @@ type messageItem = {
   message: string
   date: string
   time: string
+  id: number
+  firstName: string
+  lastName: string
+  color: string
 }
 
 type typeProps = {

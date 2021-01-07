@@ -6,13 +6,32 @@ $input-height: 50px;
   width: 100%;
   height: 50px;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  position: relative;
   background-color: #fff;
-
-  &__btn {
+  padding: 0 20px 0 20px;
+  &__btnExitBox {
+    display: flex;
+    align-items: center;
+  }
+  &__btnExit {
     width: 25px;
     cursor: pointer;
-    margin-right: 15px;
+    position: absolute;
+    right: 20px;
+  }
+  &__btnMenu {
+    display: none;
+    width: 25px;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .mesFieldHeader__btnMenu {
+    display: block;
   }
 }

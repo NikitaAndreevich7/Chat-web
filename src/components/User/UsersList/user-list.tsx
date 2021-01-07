@@ -8,6 +8,7 @@ type typeUser = {
   surname: string
   online: boolean
   id: number
+  color: string
 }
 
 type typeProps = {

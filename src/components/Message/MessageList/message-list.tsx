@@ -7,6 +7,10 @@ type messageItem = {
   message: string
   date: string
   time: string
+  id: number
+  firstName: string
+  lastName: string
+  color: string
 }
 
 type typeProps = {
@@ -26,7 +30,7 @@ const MessageList: React.FunctionComponent<typeProps> = ({
     )
   })
 
-  return <div></div>
+  return <ul>{messages}</ul>
 }
 
 export default MessageList

@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   &__searchBox {
     padding: 5px;
   }
@@ -18,5 +17,41 @@
   &__messageBox {
     width: 80%;
     height: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .home {
+    position: relative;
+    &__usersBox {
+      display: none;
+      width: 30%;
+      z-index: 1000;
+      position: absolute;
+      left: 0;
+      background-color: #fff;
+    }
+    &__messageBox {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home__usersBox {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home__usersBox {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .home__usersBox {
+    width: 60%;
   }
 }
